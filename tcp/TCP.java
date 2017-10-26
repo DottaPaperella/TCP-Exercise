@@ -125,7 +125,7 @@ public class TCP {
         }
         toReturn+="\n         t: ";
         for(int i=0;grafico[i]!=0;i++)
-        	if(grafico[i]>0)
+        	if(grafico[i]>-9)
         		toReturn+=String.format("%02d",i)+" ";
         	else
         		toReturn+=" "+String.format("%02d",i)+" ";
