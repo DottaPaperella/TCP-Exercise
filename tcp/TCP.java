@@ -1,4 +1,4 @@
-
+//No space only tab
 package tcp;
 
 /**
@@ -119,14 +119,17 @@ public class TCP {
      * Print the array with the solution of the exercise
      */
     public String toString(){
-        String toReturn="";
+        String toReturn="WindowSize: ";
         for(int i=0;grafico[i]!=0;i++){
-            toReturn+=grafico[i]+" ";
+            toReturn+=String.format("%02d",grafico[i])+" ";
         }
+        toReturn+="\n         t: ";
+        for(int i=0;grafico[i]!=0;i++)
+        	if(grafico[i]>0)
+        		toReturn+=String.format("%02d",i)+" ";
+        	else
+        		toReturn+=" "+String.format("%02d",i)+" ";
+        	
         return toReturn;
     }
-    
-    
-    
-    
 }
