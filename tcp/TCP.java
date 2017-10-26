@@ -1,5 +1,8 @@
 //No space only tab
+
 package tcp;
+
+import java.util.Arrays;
 
 /**
  *
@@ -119,17 +122,42 @@ public class TCP {
      * Print the array with the solution of the exercise
      */
     public String toString(){
-        String toReturn="WindowSize: ";
+        /*String toReturn="";
         for(int i=0;grafico[i]!=0;i++){
-            toReturn+=String.format("%02d",grafico[i])+" ";
+            toReturn+=grafico[i]+" ";
         }
-        toReturn+="\n         t: ";
-        for(int i=0;grafico[i]!=0;i++)
-        	if(grafico[i]>-9)
-        		toReturn+=String.format("%02d",i)+" ";
-        	else
-        		toReturn+=" "+String.format("%02d",i)+" ";
-        	
+        return toReturn;*/
+        return display();
+    }
+    
+    private String display(){
+        String toReturn="";
+        char[][] display=new char[100][rCVWND];
+        for(int i=0;i<100;i++)
+            for(int j=0;j<rCVWND;j++)
+                    display[i][j]=' ';
+        for(int i=0;grafico[i]!=0;i++){
+            if (grafico[i]>0)
+                for(int j=0;j<grafico[i];j++)
+                    display[i][j]='#';
+            else
+                for(int j=0;j<Math.abs(grafico[i]);j++)
+                    display[i][j]='+';
+        }
+        for(int j=rCVWND-1;j>=0;j--){
+            toReturn+=String.format("%02d ", j+1);
+            for(int i=0;grafico[i]!=0;i++){
+                toReturn+=display[i][j]+"  ";
+            }
+            toReturn+="\n";
+        }
+        toReturn+="  ";    
+        for(int i=0;grafico[i]!=0;i++){
+            toReturn+=String.format("%02d ", i);
+        }
         return toReturn;
     }
+    
+    
+    
 }
